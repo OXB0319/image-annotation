@@ -1,0 +1,49 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style\jquery-ui.min.css" />
+    <link rel="stylesheet" href="style\spectrum.css" />
+    <link rel="stylesheet" href="style\annotations.css" />
+
+    <script src="Annotations\jquery-2.0.min.js"></script>
+    <script src="Annotations\jquery-3.1.1.min.js"></script>
+    <script src="Annotations\loadProgress.js"></script>
+    <script src="Annotations\drawCore.js"></script>
+    <script src="Annotations\builder.js"></script>
+    <script src="Annotations\jquery.parsejson.js"></script>
+    <script src="Annotations\sandbox.js"></script>
+    <script src="Annotations\shapeOverlay.js"></script>
+    <script src="Annotations\sufrace.js"></script>
+    <script src="Annotations\toolbox.js"></script>
+    <script src="Annotations\shapes\Basic.js"></script>
+    <script src="Annotations\shapes\TextBoxWithLine.js"></script>
+    <script src="Annotations\environment.js"></script>
+    <script src="Annotations\jquery-ui.min.js"></script>
+    <script src="Annotations\spectrum.js"></script>
+    <script type="text/javascript" src="//http://code.jquery.com/jquery-migrate-3.0.0.js"></script>
+</head>
+
+<body>
+    <div style="position: relative;width: 800px;height: 600px;">
+        <div id="container" style="width:800px;height:600px">
+            <img style="z-index:1;position:absolute;" src="./112104751170424182.jpg" />
+        </div>
+    </div>
+    <input type="button" value="draw" id="textbox" class="btn1" note-type="27">
+    <select onchange="changetype(this)">
+        <option selected>雪花罐装啤酒</option>
+        <option>雪花瓶装啤酒</option>
+        <option>青岛罐装啤酒</option>
+    </select>
+    <script>
+        var container = document.getElementById("container");
+        var params = { IsAnnotationsAdmin: true };
+        DrawCore.setIsEditMode(true);
+        ibdEnviroment.MobilePreview = { isShortText: false, text: '罐装啤酒' };
+        DrawCore.startAll(container, params);
+        function changetype(e) {
+            ibdEnviroment.MobilePreview.text = $(e).find(':selected').val();
+        }
+    </script>
+</body>
+</html>
